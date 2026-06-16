@@ -6,9 +6,9 @@ export const alcoolQuestions: Question[] = [
     text: "As-tu déjà bu de l'alcool dans ta vie ?",
     answers: [
       { label: "Jamais", points: 0 },
-      { label: "Une ou deux fois", points: 1 },
-      { label: "Plusieurs fois", points: 2 },
-      { label: "Régulièrement", points: 3 },
+      { label: "Quelques verres en tout", points: 1 },
+      { label: "Pas mal", points: 2 },
+      { label: "Énormément", points: 3 },
     ],
   },
   {
@@ -43,12 +43,12 @@ export const alcoolQuestions: Question[] = [
   },
   {
     id: "alcool-05",
-    text: "As-tu déjà eu une gueule de bois ?",
+    text: "As-tu déjà pris ta première vraie cuite ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
-      { label: "Souvent", points: 2 },
-      { label: "Trop souvent", points: 3 },
+      { label: "Quelques fois", points: 2 },
+      { label: "Souvent", points: 3 },
     ],
   },
   {
@@ -73,12 +73,12 @@ export const alcoolQuestions: Question[] = [
   },
   {
     id: "alcool-08",
-    text: "As-tu déjà mélangé plusieurs alcools dans la soirée ?",
+    text: "As-tu déjà bu jusqu'à ne plus tenir debout ?",
     answers: [
       { label: "Jamais", points: 0 },
-      { label: "Rarement", points: 1 },
-      { label: "Souvent", points: 2 },
-      { label: "Toujours", points: 3 },
+      { label: "Une fois", points: 1 },
+      { label: "Quelques fois", points: 2 },
+      { label: "Souvent", points: 3 },
     ],
   },
   {
@@ -93,7 +93,7 @@ export const alcoolQuestions: Question[] = [
   },
   {
     id: "alcool-10",
-    text: "As-tu déjà bu avant midi (hors brunch festif) ?",
+    text: "As-tu déjà bu avant midi ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
@@ -143,7 +143,7 @@ export const alcoolQuestions: Question[] = [
   },
   {
     id: "alcool-15",
-    text: "T'es-tu déjà réveillé·e sans souvenir de la fin de soirée ?",
+    text: "As-tu déjà bu un alcool sans savoir ce que c'était ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },

@@ -37,7 +37,7 @@ export const hygieneQuestions: Question[] = [
     answers: [
       { label: "Toujours, au savon", points: 0 },
       { label: "Presque toujours, à l'eau", points: 1 },
-      { label: "Seulement chez les autres", points: 2 },
+      { label: "Vite fait, sans savon", points: 2 },
       { label: "Non, c'est facultatif pour moi", points: 3 },
     ],
   },
@@ -75,10 +75,10 @@ export const hygieneQuestions: Question[] = [
     id: "hygiene-08",
     text: "Quand tu fais tomber un truc par terre, tu...",
     answers: [
-      { label: "Tu le jettes direct", points: 0 },
-      { label: "Tu le rinces avant", points: 1 },
-      { label: "Règle des 5 secondes appliquée", points: 2 },
-      { label: "Tu le manges même 1 minute après", points: 3 },
+      { label: "Je le jette direct", points: 0 },
+      { label: "Je le rince avant", points: 1 },
+      { label: "Règle des 5 secondes", points: 2 },
+      { label: "Je le mange même après 1 min", points: 3 },
     ],
   },
   {
@@ -126,7 +126,7 @@ export const hygieneQuestions: Question[] = [
     text: "Tes chaussettes, après une journée, elles...",
     answers: [
       { label: "Vont direct au linge sale", points: 0 },
-      { label: "Servent encore une fois si propres", points: 1 },
+      { label: "Resservent une fois", points: 1 },
       { label: "Resservent deux ou trois jours", points: 2 },
       { label: "Pourraient marcher toutes seules", points: 3 },
     ],

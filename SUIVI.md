@@ -1,11 +1,11 @@
 # SUIVI — Purity Test
 
 ## 🧭 Ligne directrice
-*(maj 2026-06-16)* — **v1 fonctionnelle et testée** : app React/Vite/Tailwind
-complète, PWA, 100 questions, scoring /500, partage par lien. Build OK,
-typecheck OK, **31/31 tests verts**. **Prochaine priorité** : vérification
-visuelle dans un navigateur (mobile) + relecture du ton des questions, puis
-déploiement statique.
+*(maj 2026-06-16)* — **v1 EN LIGNE** : https://gourmaxx.github.io/purity-test/
+(repo public `Gourmaxx/purity-test`, déploiement auto via GitHub Actions à chaque
+push sur `main`). App PWA installable, 100 questions, scoring /500, partage par
+lien. **31/31 tests verts**. **Prochaine priorité** : vérif visuelle sur
+téléphone (+ install PWA) et relecture du ton des questions.
 
 ## ✅ Fait
 - [x] Cadrage (QCM pondéré, 5 catégories, ton sérieux + questions trash)
@@ -25,10 +25,10 @@ déploiement statique.
 - [x] Build + typecheck propres
 
 ## ⏳ Reste à faire
-- [ ] Vérification visuelle réelle en navigateur mobile (`npm run dev`)
+- [x] Déploiement statique → GitHub Pages (Actions, repo public)
+- [ ] Vérification visuelle réelle sur téléphone + install PWA
 - [ ] Relecture/édition fine du ton et de la justesse des questions
 - [ ] Choisir le nom définitif (actuel : « Purity Test »)
-- [ ] Déploiement statique (Vercel / Netlify / Pages)
 - [ ] (Option) Générer des icônes PNG en plus du SVG pour l'installabilité
 
 ## 📋 Notes / gotchas

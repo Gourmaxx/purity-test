@@ -13,12 +13,12 @@ export const sexeQuestions: Question[] = [
   },
   {
     id: "sexe-02",
-    text: "As-tu déjà roulé une pelle à un inconnu le soir même de la rencontre ?",
+    text: "As-tu déjà envoyé des sextos ou des nudes ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
-      { label: "Plusieurs fois", points: 2 },
-      { label: "C'est une habitude", points: 3 },
+      { label: "Quelques fois", points: 2 },
+      { label: "Souvent", points: 3 },
     ],
   },
   {
@@ -27,8 +27,8 @@ export const sexeQuestions: Question[] = [
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
-      { label: "Quelques partenaires", points: 2 },
-      { label: "Beaucoup", points: 3 },
+      { label: "Quelques fois", points: 2 },
+      { label: "Souvent", points: 3 },
     ],
   },
   {
@@ -133,12 +133,12 @@ export const sexeQuestions: Question[] = [
   },
   {
     id: "sexe-14",
-    text: "As-tu déjà expérimenté avec une personne du même sexe ?",
+    text: "As-tu déjà eu une expérience sexuelle avec une personne du même sexe ?",
     answers: [
       { label: "Jamais", points: 0 },
-      { label: "Une fois", points: 1 },
-      { label: "Quelques fois", points: 2 },
-      { label: "Souvent", points: 3 },
+      { label: "Un baiser", points: 1 },
+      { label: "Des caresses", points: 2 },
+      { label: "Un rapport complet", points: 3 },
     ],
   },
   {
@@ -193,12 +193,12 @@ export const sexeQuestions: Question[] = [
   },
   {
     id: "sexe-20",
-    text: "As-tu déjà participé à une partouze ou orgie (groupe nombreux) ?",
+    text: "As-tu déjà couché avec quelqu'un en voyage ou à l'étranger ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
       { label: "Quelques fois", points: 2 },
-      { label: "Plusieurs fois", points: 3 },
+      { label: "Souvent", points: 3 },
     ],
   },
 ];

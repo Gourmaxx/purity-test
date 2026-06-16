@@ -28,7 +28,7 @@ export const moralQuestions: Question[] = [
       { label: "Jamais, je rends", points: 0 },
       { label: "Une fois", points: 1 },
       { label: "Parfois", points: 2 },
-      { label: "Toujours", points: 3 },
+      { label: "Souvent", points: 3 },
     ],
   },
   {
@@ -36,9 +36,9 @@ export const moralQuestions: Question[] = [
     text: "Tu as volé quelque chose en magasin.",
     answers: [
       { label: "Jamais", points: 0 },
-      { label: "Une fois", points: 1 },
-      { label: "Parfois", points: 2 },
-      { label: "Souvent", points: 3 },
+      { label: "Un petit truc, ado", points: 1 },
+      { label: "Plusieurs fois", points: 2 },
+      { label: "Régulièrement", points: 3 },
     ],
   },
   {
@@ -143,7 +143,7 @@ export const moralQuestions: Question[] = [
   },
   {
     id: "moral-15",
-    text: "Tu resquilles : transports, file d'attente, entrée payante.",
+    text: "Tu resquilles (transports, files, entrées) ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
@@ -153,7 +153,7 @@ export const moralQuestions: Question[] = [
   },
   {
     id: "moral-16",
-    text: "Tu mens à tes proches sur ce que tu fais de ton temps ou ton argent.",
+    text: "Tu entretiens un mensonge durable auprès d'un proche.",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
@@ -193,7 +193,7 @@ export const moralQuestions: Question[] = [
   },
   {
     id: "moral-20",
-    text: "Tu trahis un secret qu'on t'avait confié en confiance.",
+    text: "Tu colportes un secret intime qu'on t'avait confié.",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },

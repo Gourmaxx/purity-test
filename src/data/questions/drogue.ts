@@ -48,12 +48,12 @@ export const drogueQuestions: Question[] = [
       { label: "Jamais", points: 0 },
       { label: "Un seul trip", points: 1 },
       { label: "Plusieurs fois", points: 2 },
-      { label: "Beaucoup de fois", points: 3 },
+      { label: "Souvent", points: 3 },
     ],
   },
   {
     id: "drogue-06",
-    text: "As-tu déjà mélangé plusieurs drogues dans une même soirée ?",
+    text: "As-tu déjà mélangé plusieurs drogues lors d'une même prise/soirée ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
@@ -148,12 +148,12 @@ export const drogueQuestions: Question[] = [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },
       { label: "Quelques fois", points: 2 },
-      { label: "Plusieurs fois", points: 3 },
+      { label: "Régulièrement", points: 3 },
     ],
   },
   {
     id: "drogue-16",
-    text: "As-tu déjà eu une descente (gueule de bois) difficile ?",
+    text: "As-tu déjà eu une descente difficile après une prise ?",
     answers: [
       { label: "Jamais", points: 0 },
       { label: "Une fois", points: 1 },

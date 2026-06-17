@@ -19,7 +19,7 @@ export function Home() {
         </div>
         <h1 className="text-4xl font-black tracking-tight">Purity Test</h1>
         <p className="mt-3 text-[var(--color-muted)]">
-          5 tests, 100 questions, zéro tabou.
+          5 tests, 100+ questions, zéro tabou.
           <br />
           Sexe, drogue, alcool, moral, hygiène.
           <br />

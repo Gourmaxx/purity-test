@@ -5,6 +5,7 @@ import type {
   CategoryId,
 } from "../data/types";
 import { categories } from "../data/categories";
+import { visibleQuestions } from "./questions";
 
 export interface CategoryResult {
   id: CategoryId;
@@ -34,7 +35,11 @@ export interface GlobalResult {
   profile: Profile | null;
 }
 
-/** Max reachable points for a category (sum of each question's best answer). */
+/**
+ * Max reachable points for a category. Counts every question in the bank,
+ * including conditional follow-ups: not unlocking a topic earns 0 on it, which
+ * keeps the score low — the "purity test" model where exploring raises the score.
+ */
 export function categoryMaxPoints(category: Category): number {
   return category.questions.reduce((sum, q) => {
     const best = q.answers.reduce((m, a) => Math.max(m, a.points), 0);
@@ -42,11 +47,12 @@ export function categoryMaxPoints(category: Category): number {
   }, 0);
 }
 
+/** Points earned across the questions actually shown to the user. */
 export function categoryEarnedPoints(
   category: Category,
   answers: CategoryAnswers,
 ): number {
-  return category.questions.reduce((sum, q) => {
+  return visibleQuestions(category, answers).reduce((sum, q) => {
     const idx = answers[q.id];
     if (idx == null) return sum;
     const answer = q.answers[idx];
@@ -58,8 +64,11 @@ export function scoreCategory(
   category: Category,
   answers: CategoryAnswers = {},
 ): CategoryResult {
-  const total = category.questions.length;
-  const answered = category.questions.filter((q) => answers[q.id] != null).length;
+  // Progress and completion track the questions currently unlocked; the score
+  // denominator stays the full bank (cumulative model).
+  const visible = visibleQuestions(category, answers);
+  const total = visible.length;
+  const answered = visible.filter((q) => answers[q.id] != null).length;
   const max = categoryMaxPoints(category);
   const earned = categoryEarnedPoints(category, answers);
   const score = max > 0 ? Math.round((earned / max) * 100) : 0;

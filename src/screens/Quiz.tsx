@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Navigate, useNavigate, useParams, Link } from "react-router-dom";
 import { useQuiz } from "../state/QuizContext";
 import { getCategory } from "../data/categories";
+import { visibleQuestions } from "../lib/questions";
 import type { CategoryId } from "../data/types";
 import { Page } from "../components/Page";
 import { ProgressBar } from "../components/ProgressBar";
@@ -14,31 +15,46 @@ export function Quiz() {
 
   const catAnswers = (category && answers[category.id]) || {};
 
-  // Start on the first unanswered question (or the first one).
+  // The list of shown questions grows/shrinks as gateway answers unlock follow-ups.
+  const visible = category ? visibleQuestions(category, catAnswers) : [];
+
+  // Start on the first unanswered visible question (or the first one).
   const [index, setIndex] = useState(() => {
-    if (!category) return 0;
-    const firstUnanswered = category.questions.findIndex(
-      (q) => catAnswers[q.id] == null,
-    );
+    const firstUnanswered = visible.findIndex((q) => catAnswers[q.id] == null);
     return firstUnanswered === -1 ? 0 : firstUnanswered;
   });
 
   if (!category) return <Navigate to="/hub" replace />;
 
-  const total = category.questions.length;
-  const question = category.questions[index];
+  const total = visible.length;
+  const safeIndex = Math.min(index, Math.max(0, total - 1));
+  const question = visible[safeIndex];
+  if (!question) return <Navigate to="/hub" replace />;
   const selected = catAnswers[question.id];
+
+  function goAfter(answeredId: string, nextAnswers: Record<string, number>) {
+    if (!category) return;
+    // Recompute visibility against the freshly chosen answer so a just-unlocked
+    // follow-up (inserted right after its gateway) becomes the next question.
+    const nextVisible = visibleQuestions(category, nextAnswers);
+    const pos = nextVisible.findIndex((q) => q.id === answeredId);
+    if (pos !== -1 && pos < nextVisible.length - 1) {
+      setIndex(pos + 1);
+      return;
+    }
+    const firstUnanswered = nextVisible.findIndex(
+      (q) => nextAnswers[q.id] == null,
+    );
+    if (firstUnanswered === -1) navigate(`/resultat/${category.id}`);
+    else setIndex(firstUnanswered);
+  }
 
   function choose(answerIndex: number) {
     if (!category) return;
-    setAnswer(category.id as CategoryId, question.id, answerIndex);
-    window.setTimeout(() => {
-      if (index < total - 1) {
-        setIndex((i) => i + 1);
-      } else {
-        navigate(`/resultat/${category.id}`);
-      }
-    }, 220);
+    const answeredId = question.id;
+    setAnswer(category.id as CategoryId, answeredId, answerIndex);
+    const nextAnswers = { ...catAnswers, [answeredId]: answerIndex };
+    window.setTimeout(() => goAfter(answeredId, nextAnswers), 220);
   }
 
   return (
@@ -52,7 +68,7 @@ export function Quiz() {
         </span>
       </header>
 
-      <ProgressBar current={index + 1} total={total} color={category.color} />
+      <ProgressBar current={safeIndex + 1} total={total} color={category.color} />
 
       <div key={question.id} className="mt-8 flex-1 animate-pop-in">
         <h2 className="text-xl font-bold leading-snug">{question.text}</h2>
@@ -96,8 +112,8 @@ export function Quiz() {
       <div className="mt-6 flex items-center justify-between">
         <button
           type="button"
-          onClick={() => setIndex((i) => Math.max(0, i - 1))}
-          disabled={index === 0}
+          onClick={() => setIndex(Math.max(0, safeIndex - 1))}
+          disabled={safeIndex === 0}
           className="text-sm text-[var(--color-muted)] disabled:opacity-30"
         >
           ‹ Précédent
@@ -105,14 +121,11 @@ export function Quiz() {
         {selected != null && (
           <button
             type="button"
-            onClick={() => {
-              if (index < total - 1) setIndex((i) => i + 1);
-              else navigate(`/resultat/${category.id}`);
-            }}
+            onClick={() => goAfter(question.id, catAnswers)}
             className="text-sm font-medium"
             style={{ color: category.color }}
           >
-            {index < total - 1 ? "Suivant ›" : "Terminer ›"}
+            {safeIndex < total - 1 ? "Suivant ›" : "Terminer ›"}
           </button>
         )}
       </div>

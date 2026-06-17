@@ -6,10 +6,25 @@ export interface Answer {
   points: number;
 }
 
+/**
+ * Gate that conditionally unlocks a follow-up question. The follow-up is shown
+ * (and scored) only when the gateway question has been answered with an option
+ * whose index is >= minAnswerIndex. The gateway must be declared earlier in the
+ * same category so visibility can be resolved without cycles.
+ */
+export interface QuestionGate {
+  /** id of the gateway question in the same category */
+  question: string;
+  /** show the follow-up when the chosen answer index is >= this threshold */
+  minAnswerIndex: number;
+}
+
 export interface Question {
   id: string;
   text: string;
   answers: Answer[];
+  /** when set, the question is a conditional follow-up gated by another answer */
+  requires?: QuestionGate;
 }
 
 export interface Category {

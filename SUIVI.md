@@ -3,12 +3,12 @@
 ## 🧭 Ligne directrice
 *(maj 2026-06-17)* — **v1 EN LIGNE** : https://gourmaxx.github.io/purity-test/
 (repo public `Gourmaxx/purity-test`, déploiement auto via GitHub Actions à chaque
-push sur `main`). PWA installable, scoring /500, partage par lien. **Nouveau (local,
-pas encore déployé)** : questions **conditionnelles** (une réponse « expérimentée »
+push sur `main`). PWA installable, scoring /500, partage par lien. **Nouveau
+(déployé le 2026-06-17)** : questions **conditionnelles** (une réponse « expérimentée »
 débloque des questions de suivi ciblées, ex. BDSM) + **échelles de réponses
 variables** (4–6 options chiffrées, plus seulement 4). **125 questions** (99 base +
 26 conditionnelles), **45/45 tests verts**, build propre. **Prochaine priorité** :
-pousser sur `main` pour déployer, puis vérif visuelle téléphone et nom définitif.
+vérif visuelle sur téléphone (+ install PWA) et choix du nom définitif.
 
 ## ✅ Fait
 - [x] Cadrage (QCM pondéré, 5 catégories, ton sérieux + questions trash)
